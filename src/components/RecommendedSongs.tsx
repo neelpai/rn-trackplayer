@@ -1,38 +1,26 @@
-import {View, TouchableOpacity} from 'react-native';
+import {View, StyleSheet, ScrollView} from 'react-native';
 import {SongDisplayContainer} from './SongDisplayContainer';
 import React from 'react';
 export const RecommendedSongs = ({navigation}) => {
+  const a = [1, 2, 3, 4, 5, 6];
   return (
-    <View
-      style={{
-        flexDirection: 'row',
-        flex: 1,
-        justifyContent: 'space-evenly',
-      }}>
-      <TouchableOpacity
-        onPress={() => {
-          navigation.navigate('Details');
-        }}>
-        <SongDisplayContainer />
-      </TouchableOpacity>
-      <TouchableOpacity
-        onPress={() => {
-          navigation.navigate('Details');
-        }}>
-        <SongDisplayContainer />
-      </TouchableOpacity>
-      <TouchableOpacity
-        onPress={() => {
-          navigation.navigate('Details');
-        }}>
-        <SongDisplayContainer />
-      </TouchableOpacity>
-      <TouchableOpacity
-        onPress={() => {
-          navigation.navigate('Details');
-        }}>
-        <SongDisplayContainer />
-      </TouchableOpacity>
+    <View style={styles.views}>
+      <ScrollView style={styles.recommendationView}>
+        {a.map(item => {
+          return <SongDisplayContainer key={item} text={item.toString()} />;
+        })}
+      </ScrollView>
     </View>
   );
 };
+
+const styles = StyleSheet.create({
+  views: {
+    flex: 1,
+  },
+  recommendationView: {
+    display: 'flex',
+    flexDirection: 'column',
+    flex: 1,
+  },
+});

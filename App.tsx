@@ -20,7 +20,7 @@ function App(): JSX.Element {
           headerTintColor: 'pink',
         }}>
         <Stack.Screen name="Home" component={HomePage} />
-        <Stack.Screen name="Details" component={SongPage} />
+        {/* <Stack.Screen name="Details" component={SongPage} /> */}
       </Stack.Navigator>
     </NavigationContainer>
   );
